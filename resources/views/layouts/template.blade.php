@@ -15,13 +15,10 @@
                 <!-- Navigation Links -->
                 <ul class="flex space-x-4">
                     <li>
-                        <a href="/" class="hover:text-gray-300">Home</a>
+                        <a href="{{ route('tasks.index') }}" class="hover:text-gray-300">Task List</a>
                     </li>
                     <li>
-                        <a href="./create" class="hover:text-gray-300">Create Task</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:text-gray-300">Delete Task</a>
+                        <a href="{{ route('tasks.create') }}" class="hover:text-gray-300">Create Task</a>
                     </li>
                 </ul>
             </nav>
