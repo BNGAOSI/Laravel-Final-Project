@@ -4,10 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TodoController;
 use App\Models\Task; 
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+})->name('logout');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -15,8 +21,9 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // Todo List Routes
-    Route::get('/index', function () {
-        $tasks = Task::all();
+    Route::middleware(['auth', 'verified'])->get('/index', function () {
+        $user = Auth::user();
+        $tasks = $user->tasks()->get();
         return view('index', compact('tasks'));
     })->name('tasks.index');
     

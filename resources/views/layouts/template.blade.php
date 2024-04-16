@@ -21,6 +21,15 @@
                         <a href="{{ route('tasks.create') }}" class="hover:text-gray-300">Create Task</a>
                     </li>
                 </ul>
+               
+                <div>
+                    @auth
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg">Logout</button>
+                    </form>
+                    @endauth
+                </div>
             </nav>
         </div>
     </div>
