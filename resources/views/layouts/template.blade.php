@@ -8,8 +8,8 @@
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 h-screen">
-    <div class="bg-blue-500 text-white">
+<body class="bg-gray-900 text-white h-screen">
+    <div class="bg-red-600">
         <div class="container mx-auto p-4">
             <nav class="flex justify-between items-center">
                 <!-- Navigation Links -->
@@ -26,7 +26,7 @@
                     @auth
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg">Logout</button>
+                        <button type="submit" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg">Logout</button>
                     </form>
                     @endauth
                 </div>
